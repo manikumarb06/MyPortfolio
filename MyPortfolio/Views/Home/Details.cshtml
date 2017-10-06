@@ -9,7 +9,11 @@
 <script>
     $(document).ready(function () {
         $("#btnSubmit").click(function () {
-            swal("Thank you!", "Click OK for Portfolio..!!", "success");
+            swal("Thank you!", "Click OK for Portfolio..!!", "success").then(
+  function () { window.location = "/Home/About"; }
+  // handling the promise rejection
+  
+)
         });
         $("#btnReject").click(function () {
            // swal('That\'s okay..!!','Something went wrong!','error');
@@ -22,13 +26,8 @@
                 swal.showLoading()
             }
         }).then(
-  function () { },
+  function () { window.location = "/Home/About"; }
   // handling the promise rejection
-  function (dismiss) {
-      if (dismiss === 'timer') {
-          console.log('I was closed by the timer')
-      }
-  }
 )
         });
     });
