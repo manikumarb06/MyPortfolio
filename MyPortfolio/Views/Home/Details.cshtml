@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Provide Details for Contact";
+}
+
+<h3>@ViewBag.Title</h3>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            swal("Thank you!", "Click OK for Portfolio..!!", "success");
+        });
+        $("#btnReject").click(function () {
+           // swal('That\'s okay..!!','Something went wrong!','error');
+        
+        swal({
+            title: 'That\'s Okay!',
+            text: 'Redirecting to the Portfolio..!!',
+            timer: 5000,
+            onOpen: function () {
+                swal.showLoading()
+            }
+        }).then(
+  function () { },
+  // handling the promise rejection
+  function (dismiss) {
+      if (dismiss === 'timer') {
+          console.log('I was closed by the timer')
+      }
+  }
+)
+        });
+    });
+</script>
+<form>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <fieldset style="padding-top:10px;">
+            <label class="pull-left">
+            First Name
+                </label>
+                <input type="text" class="form-control width-half pull-right" name="First Name" id="txtFirstName" class="input-xxlarge" maxlength="100" />
+        </fieldset>
+        </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <fieldset style="padding-top:10px;">
+            <label class="pull-left">
+                Last Name
+            </label>
+            <input type="text" class="form-control width-half pull-right" name="Last Name" id="txtLastName" class="input-xxlarge" maxlength="100" />
+        </fieldset>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <fieldset style="padding-top:10px;">
+            <label class="pull-left">
+                Email
+            </label>
+            <input type="text" class="form-control width-half pull-right" name="Email" id="txtEmail" class="input-xxlarge" maxlength="100" />
+        </fieldset>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <fieldset style="padding-top:10px;">
+            <label class="pull-left">
+                Phone
+            </label>
+            <input type="number" class="form-control width-half pull-right" name="Phone Number" id="txtPhone" maxlength="20" />
+        </fieldset>
+    </div>
+    <br />
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <a class="btn btn-primary" id="btnSubmit" value="btnSubmitClick">Submit Details</a>
+    </div>
+    <div class="col-sm-6 col-md-6 col-lg-6">
+        <a class="btn btn-primary" id="btnReject" value="btnRejectClick">No Thanks</a>
+    </div>    
+</form>
